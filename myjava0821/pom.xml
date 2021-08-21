@@ -20,17 +20,7 @@
         </dependency>
     </dependencies>
     
-    <repositories>
-        <repository>
-            <id>central</id>
-            <name>Central Repository</name>
-            <url>https://repo.maven.apache.org/maven2</url>
-            <layout>default</layout>
-            <snapshots>
-                <enabled>false</enabled>
-            </snapshots>
-        </repository>
-    </repositories> 
+    
     
      <pluginRepositories>
     <pluginRepository>
@@ -46,6 +36,35 @@
         </releases>
     </pluginRepository>
 </pluginRepositories>
+    
+    <reporting>
+        <plugins>
+            <!-- Normally, we take off the dependency report, saves time. -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-project-info-reports-plugin</artifactId>
+                <version>2.7</version>
+                <configuration>
+                    <dependencyLocationsEnabled>false</dependencyLocationsEnabled>
+                </configuration>
+            </plugin>
+
+	 
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>cobertura-maven-plugin</artifactId>
+                <version>2.6</version>
+                <configuration>
+                    <formats>
+                        <format>html</format>
+                        <format>xml</format>
+                    </formats>
+                </configuration>
+            </plugin>
+
+        </plugins>
+    </reporting>
+
     
     
 </project>
